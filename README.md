@@ -7,14 +7,17 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0486-predict-the-winner](https://github.com/Paarth01/Leetcode/tree/master/0486-predict-the-winner) |
 | [1331-rank-transform-of-an-array](https://github.com/Paarth01/Leetcode/tree/master/1331-rank-transform-of-an-array) |
 | [1406-stone-game-iii](https://github.com/Paarth01/Leetcode/tree/master/1406-stone-game-iii) |
+| [3731-find-missing-elements](https://github.com/Paarth01/Leetcode/tree/master/3731-find-missing-elements) |
 ## Hash Table
 |  |
 | ------- |
 | [1331-rank-transform-of-an-array](https://github.com/Paarth01/Leetcode/tree/master/1331-rank-transform-of-an-array) |
+| [3731-find-missing-elements](https://github.com/Paarth01/Leetcode/tree/master/3731-find-missing-elements) |
 ## Sorting
 |  |
 | ------- |
 | [1331-rank-transform-of-an-array](https://github.com/Paarth01/Leetcode/tree/master/1331-rank-transform-of-an-array) |
+| [3731-find-missing-elements](https://github.com/Paarth01/Leetcode/tree/master/3731-find-missing-elements) |
 ## Math
 |  |
 | ------- |
