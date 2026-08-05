@@ -1,54 +1,34 @@
 class Solution {
 public:
-    bool outsideConnection = false;
-    vector<int> mark;
-
-    void bfs(int color, unordered_map<int, vector<int>>& graph, int src){
-        queue<int> q;
-        q.push(src);
-        mark[src] = color;
-
-        while(!q.empty()){
-            int node = q.front();
-            q.pop();
-
-            if(!graph.count(node)) continue;
-
-            for(int nxt : graph[node]){
-                if(mark[nxt] == 1 && color == 2){
-                    outsideConnection = true;
-                    return;
-                }
-
-                if(mark[nxt] != color){
-                    mark[nxt] = color;
-                    q.push(nxt);
-                }
+    void dfs(int node, vector<int> adj[], vector<int> &vis) {
+        vis[node] = 1;
+        for(auto &i : adj[node]) {
+            if(!vis[i]) {
+                dfs(i, adj, vis);
             }
         }
     }
-
-    vector<int> remainingMethods(int n, int k, vector<vector<int>>& edges) {
-        unordered_map<int, vector<int>> graph;
-        mark.assign(n, 0);
-
-        for(auto &e : edges)
-            graph[e[0]].push_back(e[1]);
-
-        bfs(1, graph, k);
-
-        for(int i = 0; i < n; i++){
-            if(i == k || mark[i] == 1) continue;
-            bfs(2, graph, i);
+    vector<int> remainingMethods(int n, int k, vector<vector<int>>& invocations) {
+        vector<int> adj[n];
+        for(auto & i : invocations) {
+            int u = i[0];
+            int v = i[1];
+            adj[u].push_back(v);
         }
-
-        vector<int> res;
-
-        for(int i = 0; i < n; i++){
-            if(!outsideConnection && mark[i] == 1) continue;
-            res.push_back(i);
+        vector<int> vis(n, 0);
+        dfs(k, adj, vis);
+        vector<int> ans;
+        for(auto &i : invocations) {
+            int u = i[0];
+            int v = i[1];
+            if(!vis[u] && vis[v]) {
+                for(int i = 0; i < n; i++) ans.push_back(i);
+                return ans;
+            }
         }
-
-        return res;
+        for(int i = 0; i < n; i++) {
+            if(!vis[i]) ans.push_back(i);
+        }
+        return ans;
     }
 };
